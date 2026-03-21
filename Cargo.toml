@@ -1,0 +1,39 @@
+################################################################################
+#                                                                              #
+#  SPDX-License-Identifier: UNLICENSED                                         #
+#  See LICENSE.txt for full license terms (FR/EN).                             #
+#                                                                              #
+#  Author: Charles Theetten                                                    #
+#                                                                              #
+################################################################################
+
+[package]
+name            = "pendu"
+version         = "1.0.0"
+edition         = "2024"
+rust-version    = "1.94"
+authors         = ["Charles Theetten"]
+
+################################################################################
+
+[dependencies]
+clap            = { version = "4.5", features = ["derive"] }
+fastrand        = "1"
+sys-locale      = "0.3"
+
+################################################################################
+
+[profile.release]
+opt-level       = "z"
+lto             = true
+codegen-units   = 1
+panic           = "abort"
+debug           = 0
+
+################################################################################
+
+[[bin]]
+name            = "pendu"
+path            = "src/pendu.rs"
+
+################################################################################
